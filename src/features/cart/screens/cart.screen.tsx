@@ -19,7 +19,6 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { removeProductFromCart, updateProdactQuantity } from "../server/cart.actions";
-import { cartSlice } from "../store/cart.slice";
 import { useRouter } from "next/navigation"; // <-- استيراد useRouter
 
 export default function CartScreen() {

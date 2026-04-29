@@ -19,22 +19,7 @@ import { addProducToCart } from "@/features/cart/server/cart.actions";
 import { getLoggedUserCart } from "@/features/cart/store/cart.slice";
 import { addProductToWishlist, fetchWishlist } from "@/features/wishlist/store/wishlist.slice";
 import { toast } from "react-toastify";
-
-type Product = {
-  id: string;
-  title: string;
-  description: string;
-  images: string[];
-  ratingsAverage: number;
-  ratingsQuanity: number;
-  price: number;
-  priceAfterDiscount?: number;
-  quantity: number;
-  category: { name: string; _id: string };
-  subcategory: { name: string; _id: string }[];
-  brand: { name: string; image: string };
-  ratingsQuantity: number;
-};
+import type { Product } from "../../types/products.types";
 
 export default function ProductInfo({ product }: { product: Product }) {
   // ✅ 2. ضفنا الـ id هنا عشان نستخدمه في الأكشنز

@@ -1,14 +1,22 @@
-"use client";
+'use client';
 
-import { ReactNode } from "react";
-import { Provider } from "react-redux";
-import { store } from "@/features/auth/store/store";
+import { ReactNode, useState } from 'react';
+import { Provider } from 'react-redux';
+import {
+  makeStore,
+  type RootState,
+} from '@/features/auth/store/store';
 
 interface ProvidersProps {
   children: ReactNode;
-  preloadedState?: any; 
+  preloadedState?: Partial<RootState>;
 }
 
-export default function Providers({ children, preloadedState }: ProvidersProps) {
+export default function Providers({
+  children,
+  preloadedState,
+}: ProvidersProps) {
+  const [store] = useState(() => makeStore(preloadedState));
+
   return <Provider store={store}>{children}</Provider>;
 }

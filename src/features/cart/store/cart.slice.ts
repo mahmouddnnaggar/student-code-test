@@ -8,6 +8,7 @@ export interface CartProductDetails {
   imageCover: string;
   category: any;
   id: string;
+  quantity: number;
 }
 
 export interface CartItem {

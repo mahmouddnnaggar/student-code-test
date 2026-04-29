@@ -2,9 +2,9 @@
 import {jwtDecode}from"jwt-decode"
 import axios, { AxiosRequestConfig } from "axios";
 import { cookies } from "next/headers"
-import { GetOrdersResponse } from "../types/orders.types";
+import { Order } from "../types/orders.types";
 
-export async function getUserOrder(id:string):Promise<GetOrdersResponse>{
+export async function getUserOrder():Promise<Order[]>{
 
 const cookieStore= await cookies();
 const token= cookieStore.get("token")?.value||null

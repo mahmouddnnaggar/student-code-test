@@ -1,9 +1,16 @@
+"use server";
+
 import axios from "axios";
-import Cookies from 'js-cookie';
+import { cookies } from "next/headers";
 
 export default async function changePasswordAction(values: any) {
   try {
-    const token = Cookies.get("token"); 
+    const cookieStore = await cookies();
+    const token = cookieStore.get("token")?.value || null;
+
+    if (!token) {
+      throw new Error("Authentication required");
+    }
 
     const { data } = await axios.put(
       "https://ecommerce.routemisr.com/api/v1/users/changeMyPassword",

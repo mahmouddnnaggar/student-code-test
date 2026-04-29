@@ -15,10 +15,7 @@ export const signupSchema = z.object({
   rePassword: z.string().nonempty("confirm password is required"),
   mobile: z.string().nonempty("phone is required").regex(/^01[0125][0-9]{8}$/, "only Egyptian phone numbers are allowed"),
   dateOfBirth: z.string().optional(), 
-  gender: z.enum(["male", "female"] , {
-
-    errorMap: () => ({ message: "Please select your gender" })
-}),
+  gender: z.enum(["male", "female"], "Please select your gender"),
   terms: z.boolean().refine((val) => val === true, {
     message: "you must accept the terms and conditions",
   }),
